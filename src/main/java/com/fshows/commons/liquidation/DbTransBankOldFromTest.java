@@ -58,6 +58,7 @@ public class DbTransBankOldFromTest {
     }
 
 
+    // id>#maxId#
     public List<Merchant> getList() {
         String sql = "SELECT * FROM lp_all_lifecircle_merchant_temp WHERE  store_id='20161102023215021250'";
         List<Merchant> list = DBTestEnvUtilsTemplate.find(Merchant.class, sql);

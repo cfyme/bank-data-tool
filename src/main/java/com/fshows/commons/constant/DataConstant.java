@@ -28,7 +28,6 @@ public class DataConstant {
     public static  String  liquidator_id = "20160921085633894";
 
 
-    /** 先设置成50 **/
     public static String yanbian_bank_id = "5";
     public static String yanbian_alipid = "2088621862443282";
     public static String youdian_alipid = "2088011993690428";
@@ -36,7 +35,7 @@ public class DataConstant {
     public static String create_time = "1530892800000";
 
 
-    ////////////////////新平台化
+    //新平台化
     public static String new_bank_lp_bank_id = "1";
 
 

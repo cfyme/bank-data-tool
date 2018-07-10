@@ -33,7 +33,7 @@ public class DbTrans {
             ArrayList<String[]> csvFileList = MyCsvUtil.getCsvList();
 
             System.out.println("==============" + csvFileList.size());
-            logger.info("99lifecircle_csv.size = " + csvFileList.size());
+            logger.info("lifecircle_csv.size = " + csvFileList.size());
 
 
             StringBuffer sb = new StringBuffer(10240);
