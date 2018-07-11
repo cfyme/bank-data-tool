@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSON;
 import com.fshows.commons.constant.BaseOnline;
 import com.fshows.commons.dao.dbtemplate.DBBankOldUtilsTemplate;
 import com.fshows.commons.liquidation.DbTrans;
+import com.fshows.commons.util.MyStringUtil;
 import com.fshows.commons.util.OkHttpUtils;
 import com.google.common.collect.Maps;
 import org.apache.commons.logging.Log;
@@ -36,7 +37,7 @@ public class AipayMerchantCreate {
 
 
 
-            String sql = "select store_id,category_id from lp_liquidator_store where store_id='"+storeId+"'";
+            String sql = "select store_id,category_id,merchant_name from lp_liquidator_store where store_id='"+storeId+"'";
 
             Map<String, Object> map = DBBankOldUtilsTemplate.findFirst(sql);
 
@@ -45,15 +46,21 @@ public class AipayMerchantCreate {
             }
 
             String categoryId = map.get("category_id")+"";
+            String name = map.get("merchant_name")+"";
 
             Map<String, Object> content = Maps.newHashMap();
             content.put("store_id", storeId);
 
             content.put("category_id", categoryId);
 
+            logger.info("merchant  before name="+name);
+            name= MyStringUtil.trim(name);
+            //name=name.replace("娱乐", "");
 
+            logger.info("merchant  after name="+name);
 
-
+            content.put("name", name);
+            content.put("alias_name", name);
 
             params.put("content", JSON.toJSONString(content));
             params.put("sign", BaseOnline.getSign(params));

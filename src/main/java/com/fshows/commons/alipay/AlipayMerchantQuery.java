@@ -20,8 +20,8 @@ import javax.xml.bind.util.JAXBSource;
 public class AlipayMerchantQuery {
 
     public static void main(String[] args) throws  Exception{
-        executeYanBian();
-       // executePa();
+        //executeYanBian();
+       executePa();
     }
 
     public static void executeYanBian() throws Exception {
@@ -42,16 +42,17 @@ public class AlipayMerchantQuery {
     }
 
     public static void executePa() throws Exception {
-        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", AlipayConstant.pa_app_id, AlipayConstant.pa_private_key, "json", "GBK", AlipayConstant.pa_public_key, "RSA");
+        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", AlipayConstant.pa_app_id, AlipayConstant.pa_private_key, "json", "GBK", "", "RSA");
         AntMerchantExpandIndirectQueryRequest request = new AntMerchantExpandIndirectQueryRequest();
         request.setBizContent("{" +
-                "\"sub_merchant_id\":\"2088821514428580\"," +
-                "\"external_id\":\"20171020153044023031\"" +
+                "\"sub_merchant_id\":\"2088721797369737\"," +
+                "\"external_id\":\"20170811100649025614\"" +
                 //"\"org_pid\":\"2088001969784501\"" +
                 "  }");
         AntMerchantExpandIndirectQueryResponse response = alipayClient.execute(request);
         if (response.isSuccess()) {
-            System.out.println("调用成功");
+            System.out.println("调用成功, resp="+ JSON.toJSONString(response));
+
         } else {
             System.out.println("调用失败");
         }
