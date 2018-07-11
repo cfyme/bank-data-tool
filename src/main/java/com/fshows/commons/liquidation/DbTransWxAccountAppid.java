@@ -49,7 +49,7 @@ public class DbTransWxAccountAppid {
 
     public void executeWxAccountAppidBuildSql(Long lastId) throws Exception {
 
-        String sql = "SELECT * FROM lp_liquidator_wx_account_appid WHERE id>? and liquidator_id=? limit 5";
+        String sql = "SELECT * FROM lp_liquidator_wx_account_appid WHERE id>? and liquidator_id=?";
 
         List<Map<String, Object>> list = DBLiquidationUtilsTemplate.find(sql, new Object[]{lastId, DataConstant.liquidator_id});
 

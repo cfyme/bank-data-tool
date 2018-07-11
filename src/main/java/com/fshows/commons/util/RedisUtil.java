@@ -26,7 +26,7 @@ public final class RedisUtil {
     
     //访问密码
     //private static String AUTH = "PbuFNjIt3iOUQdXKsjPcmR2oq0jlC3Lx6S1+Nfm9ZCc=";
-    private static String AUTH = "123456";
+    private static String AUTH = "cfyme";
 
     //可用连接实例的最大数目，默认值为8；
     //可用连接实例的最大数目，默认值为8；
@@ -37,7 +37,7 @@ public final class RedisUtil {
     private static int MAX_IDLE = 200;
     
     //等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException；
-    private static int MAX_WAIT = 10000;
+    private static int MAX_WAIT = 30000;
     
     private static int TIMEOUT = 30000;
     

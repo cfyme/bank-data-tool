@@ -5,6 +5,7 @@
 package com.fshows.commons.util;
 
 import com.fshows.commons.constant.DataConstant;
+import org.apache.commons.lang3.StringUtils;
 import redis.clients.jedis.Jedis;
 
 import javax.xml.crypto.Data;
@@ -25,46 +26,56 @@ public class TestRedis {
             DEFAULT_IO_THREADS * 2, 1, TimeUnit.HOURS, queue, new ThreadPoolExecutor.CallerRunsPolicy());
 
     public static void main(String[] args) {
-       // for (int i = 0; i < 20; i++) {
-            //System.out.println(i);
-           // executor.submit(new MyThread());
+        for (int i = 0; i < 2000; i++) {
+            System.out.println(i);
+            executor.submit(new MyThread());
 
-       // }
+        }
+        
+        System.out.println("111111111111");
 
         Jedis jedis = RedisUtil.getJedis();
+        
+        System.out.println("2222222222222");
 
         String redisKey = DataConstant.redisKey;
-        
+
         System.out.println(jedis.get(redisKey));
-        
+
         System.out.println("99999999999");
+        RedisUtil.returnResource(jedis);
 
     }
 
 
-    static  class MyThread extends Thread {
+    static class MyThread extends Thread {
         @Override
         public void run() {
 
             Jedis jedis = RedisUtil.getJedis();
 
             String redisKey = DataConstant.redisKey;
-            
-            // 设置在redis中的缓存，累加1
-            long count = jedis.incr(redisKey);
-            
-            System.out.println("count="+count);
+
+            String redisValue = jedis.get(redisKey);
 
 
-            // 如果该key不存在，则从0开始计算，并且当count为1的时候，设置过期时间
-            if (count == 1) {
+            if (StringUtils.isBlank(redisValue)) {
+                jedis.incr(redisKey);
                 jedis.expire(redisKey, 5);
+            } else if (Integer.valueOf(redisValue) > 100) {
+                System.out.println("more than 100");
+                try {
+                    Thread.sleep(3000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }else{
+                jedis.incr(redisKey);
             }
+
 
             // 如果redis中的count大于限制的次数，则报错
-            if (count > 100) {
-                System.out.println(count);
-            }
 
             RedisUtil.returnResource(jedis);
 
