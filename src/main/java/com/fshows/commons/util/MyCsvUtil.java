@@ -23,14 +23,12 @@ public class MyCsvUtil {
 
     private static final Log logger = LogFactory.getLog(DateUtil.class);
 
-    static Map<String,String> uidMap = Maps.newHashMap();
+    static Map<String, String> uidMap = Maps.newHashMap();
 
     public static ArrayList<String[]> getCsvList() {
         try {
 
             logger.info("load csv file start");
-
-            //List<String> idList = MyFileUtil.getListFromFile("idcard.txt");
 
             // 用来保存数据
             ArrayList<String[]> csvFileList = new ArrayList<String[]>();
@@ -48,14 +46,10 @@ public class MyCsvUtil {
                 String storeId = MyStringUtil.trim(array[2]);
 
 
-
-                if(uidMap.containsKey(uid)){
-                    logger.info("exist uid="+uid+",storeId={}"+ storeId);
-                }else{
-
-//                    if(idList.contains(storeId)){
-                       csvFileList.add(array);
-//                    }
+                if (uidMap.containsKey(uid)) {
+                    logger.info("exist uid=" + uid + ",storeId={}" + storeId);
+                } else {
+                    csvFileList.add(array);
                 }
 
                 uidMap.put(uid, storeId);
@@ -74,5 +68,33 @@ public class MyCsvUtil {
     }
 
 
+    public static ArrayList<String[]> getStoreBankCsvList() {
+        try {
+
+            logger.info("load gBankCsv file start");
+
+            // 用来保存数据
+            ArrayList<String[]> csvFileList = new ArrayList<String[]>();
+            // 定义一个CSV路径
+            String csvFilePath = DataConstant.bank_csv;
+            // 创建CSV读对象 例如:CsvReader(文件路径，分隔符，编码格式);
+            CsvReader reader = new CsvReader(csvFilePath, ',', Charset.forName(DataConstant.charset));
+            // 跳过表头如果需要表头的话，这句可以忽略
+            reader.readHeaders();
+            // 逐行读入除表头的数据
+            while (reader.readRecord()) {
+                String[] array = reader.getValues();
+                String uid = MyStringUtil.trim(array[0]);
+                String storeId = MyStringUtil.trim(array[2]);
+                csvFileList.add(array);
+            }
+            reader.close();
+            logger.info("load csv file end");
+            return csvFileList;
+        } catch (Exception e) {
+            logger.error("getCsvList error", e);
+            return null;
+        }
+    }
 
 }

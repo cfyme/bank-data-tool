@@ -2,6 +2,8 @@ package com.fshows.commons;
 
 import com.fshows.commons.alipay.AipayMerchantBatchCreate;
 import com.fshows.commons.alipay.AipayMerchantCreate;
+import com.fshows.commons.bank.SyncStoreBankNew;
+import com.fshows.commons.bank.SyncStoreBankOld;
 import com.fshows.commons.batch.DbBankNewExecuteSql;
 import com.fshows.commons.batch.DbBankOldExecuteSql;
 import com.fshows.commons.constant.DataConstant;
@@ -124,6 +126,14 @@ public class MainExecute {
 
         if ("UpdateAreaCode".equalsIgnoreCase(a)) {
             UpdateAreaCode gaara = new UpdateAreaCode();
+            gaara.execute();
+        }
+        if ("SyncStoreBankOld".equalsIgnoreCase(a)) {
+            SyncStoreBankOld gaara = new SyncStoreBankOld();
+            gaara.execute();
+        }
+        if ("SyncStoreBankNew".equalsIgnoreCase(a)) {
+            SyncStoreBankNew gaara = new SyncStoreBankNew();
             gaara.execute();
         }
 

@@ -24,6 +24,11 @@ public class DataConstant {
 
 
 
+    public static String bank_csv = "/users/caofy/excel/lifecircle_bank.txt";
+
+    //public static String bank_csv = "lifecircle_bank.txt";
+
+
     /** 清算方友店ID 固定值 **/
     public static  String  liquidator_id = "20160921085633894";
 
