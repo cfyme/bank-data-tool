@@ -42,17 +42,17 @@ public class MyCsvUtil {
             while (reader.readRecord()) {
 
                 String[] array = reader.getValues();
-                String uid = MyStringUtil.trim(array[0]);
+                //String uid = MyStringUtil.trim(array[0]);
                 String storeId = MyStringUtil.trim(array[2]);
 
 
-                if (uidMap.containsKey(uid)) {
-                    logger.info("exist uid=" + uid + ",storeId={}" + storeId);
+                if (uidMap.containsKey(storeId)) {
+                    logger.info("existstoreId=" + storeId);
                 } else {
                     csvFileList.add(array);
                 }
 
-                uidMap.put(uid, storeId);
+                uidMap.put(storeId, storeId);
 
             }
             reader.close();

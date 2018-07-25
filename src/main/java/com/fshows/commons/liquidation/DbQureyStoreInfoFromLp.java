@@ -54,11 +54,16 @@ public class DbQureyStoreInfoFromLp {
             String city_code = map.get("city_code")+"";
             String district_code = map.get("district_code")+"";
 
-            String updateSql = String.format("update lp_liquidator_store_auth set " +
-                    "store_address='%s',province_code='%s',city_code='%s',district_code='%s' " +
-                    "where store_id='%s';",
+//            String updateSql = String.format("update lp_liquidator_store_auth set " +
+//                    "store_address='%s',province_code='%s',city_code='%s',district_code='%s' " +
+//                    "where store_id='%s';",
+//                    store_address,province_code,city_code,district_code, storeId);
 
-                    store_address,province_code,city_code,district_code, storeId);
+
+            String updateSql = String.format("update lp_liquidator_store_auth set " +
+                            "store_address='%s' " +
+                            "where store_id='%s'; ",
+                    store_address,storeId);
 
             pw.println(updateSql);
 

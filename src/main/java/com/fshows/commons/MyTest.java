@@ -4,10 +4,10 @@
  */
 package com.fshows.commons;
 
-import com.fshows.commons.bank.SyncStoreBankNew;
-import com.fshows.commons.bank.SyncStoreBankOld;
 import com.fshows.commons.liquidation.DbTrans;
-import com.fshows.commons.liquidation.DbTransBankNewFromTest;
+import com.google.common.collect.Lists;
+
+import java.util.List;
 
 /**
  * @author caofy
@@ -16,8 +16,8 @@ import com.fshows.commons.liquidation.DbTransBankNewFromTest;
 public class MyTest {
 
     public static void main(String[] args){
-        //DbTrans dbTrans = new DbTrans();
-        //dbTrans.execute();;
+//        DbTrans dbTrans = new DbTrans();
+//        dbTrans.execute();;
 
         //DbTransBankNewFromTest a = new DbTransBankNewFromTest();
         //a.execute();
@@ -25,7 +25,19 @@ public class MyTest {
 //        SyncStoreBankOld gaara = new SyncStoreBankOld();
 //        gaara.execute();;
 
-        SyncStoreBankNew gaara = new SyncStoreBankNew();
-        gaara.execute();;
+//        DbCheck5000Store gaara = new DbCheck5000Store();
+//        gaara.execute();;
+
+            List<String> list = Lists.newArrayList();
+            int size = 1099;
+            for (int i = 0; i < size; i++) {
+                list.add("hello-" + i);
+            }
+            // 切割大集合到指定的长度：11
+            List<List<String>> rsList = Lists.partition(list, 500);
+            int i = 0;
+            for (List<String> obj : rsList) {
+                System.out.println(String.format("row:%s -> size:%s,data:%s", ++i, obj.size(), obj));
+            }
     }
 }

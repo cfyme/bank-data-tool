@@ -9,6 +9,7 @@ import com.fshows.commons.constant.DataConstant;
 import com.fshows.commons.dao.dbtemplate.DBBankNewUtilsTemplate;
 import com.fshows.commons.dao.dbtemplate.DBBankOldUtilsTemplate;
 import com.fshows.commons.model.MerchantBankModel;
+import com.fshows.commons.util.CheckUtil;
 import com.fshows.commons.util.DateUtil;
 import com.fshows.commons.util.MyCsvUtil;
 import org.apache.commons.collections.CollectionUtils;
@@ -78,7 +79,11 @@ public class SyncStoreBankNew {
                 String open_bank = model.getOpen_bank();
                 String super_bank_no = model.getSuper_bank_no();
                 String united_bank_no = model.getUnited_bank_no();
-                String time = DateUtil.getNow() + "";
+
+                if(!CheckUtil.isBankNo(bank_no)){
+                    logger.info("bankNo not valid, storeId="+store_id+",bankNo="+bank_no);
+                    continue;
+                }
 
 
                 String insertSql = String.format("insert into lp_store_bank (store_id,bank_no,username,is_public_account, open_bank, super_bank_no,united_bank_no) values" +

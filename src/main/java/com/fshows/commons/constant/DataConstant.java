@@ -19,7 +19,9 @@ public class DataConstant {
     public static final  int bachSize = 1000;
 
     //public static String lifecircle_csv = "/users/caofy/excel/lifecircle.csv";
-   public static String lifecircle_csv = "/users/caofy/excel/lifecircle_merchant_0708.txt";
+   //public static String lifecircle_csv = "/users/caofy/excel/lifecircle_merchant_0708.txt";
+   public static String lifecircle_csv = "/users/caofy/excel/lifecircle_merchant_0724.csv";
+   //public static String lifecircle_csv = "/users/caofy/excel/27storeId.csv";
    // public static String lifecircle_csv = "lifecircle_merchant_0708.txt";
 
 
@@ -36,7 +38,7 @@ public class DataConstant {
     public static String yanbian_bank_id = "5";
     public static String yanbian_alipid = "2088621862443282";
     public static String youdian_alipid = "2088011993690428";
-    public static String charset = "GBK";
+    public static String charset = "UTF-8";
     public static String create_time = "1530892800000";
 
 

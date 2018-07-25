@@ -31,9 +31,9 @@ public class DbTransBankOldFromTest {
      * lp_liquidator_store_auth
      * lp_store_bank
      */
-    public void execute() {
+    public void execute(int maxId) {
 
-        List<Merchant> list = getList();
+        List<Merchant> list = getList(maxId);
 
         logger.info("从测试环境导入 execute start");
 
@@ -59,8 +59,8 @@ public class DbTransBankOldFromTest {
 
 
     // id>#maxId#
-    public List<Merchant> getList() {
-        String sql = "SELECT * FROM lp_all_lifecircle_merchant_temp WHERE  store_id='20161102023215021250'";
+    public List<Merchant> getList(int maxId) {
+        String sql = "SELECT * FROM lp_all_lifecircle_merchant_temp WHERE id>"+maxId;
         List<Merchant> list = DBTestEnvUtilsTemplate.find(Merchant.class, sql);
         return list;
     }
@@ -167,6 +167,8 @@ public class DbTransBankOldFromTest {
                 store_id, bank_no, username, is_public_account, open_bank, super_bank_no, united_bank_no,
                 DataConstant.create_time, DataConstant.create_time
         );
+
+
 
         DBBankOldUtilsTemplate.update(sqlStore.toString());
         DBBankOldUtilsTemplate.update(sqlAuth.toString());

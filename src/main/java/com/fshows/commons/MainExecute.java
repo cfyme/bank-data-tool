@@ -6,6 +6,9 @@ import com.fshows.commons.bank.SyncStoreBankNew;
 import com.fshows.commons.bank.SyncStoreBankOld;
 import com.fshows.commons.batch.DbBankNewExecuteSql;
 import com.fshows.commons.batch.DbBankOldExecuteSql;
+import com.fshows.commons.check.DbBankNewCheck;
+import com.fshows.commons.check.DbBankOldCheck;
+import com.fshows.commons.check.DbLiquidationOldCheck;
 import com.fshows.commons.constant.DataConstant;
 import com.fshows.commons.liquidation.*;
 
@@ -101,11 +104,11 @@ public class MainExecute {
 
         if ("DbTransBankNewFromTest".equalsIgnoreCase(a)) {
             DbTransBankNewFromTest gaara = new DbTransBankNewFromTest();
-            gaara.execute();
+            gaara.execute(Integer.valueOf(c));
         }
         if ("DbTransBankOldFromTest".equalsIgnoreCase(a)) {
             DbTransBankOldFromTest gaara = new DbTransBankOldFromTest();
-            gaara.execute();
+            gaara.execute(Integer.valueOf(c));
         }
 
 

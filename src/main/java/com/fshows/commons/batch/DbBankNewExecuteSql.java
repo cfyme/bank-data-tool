@@ -5,8 +5,7 @@
 package com.fshows.commons.batch;
 
 import com.fshows.commons.dao.dbtemplate.DBBankNewUtilsTemplate;
-import com.fshows.commons.dao.dbtemplate.DBBankOldUtilsTemplate;
-import com.fshows.commons.liquidation.DbBankOldCheck;
+import com.fshows.commons.check.DbBankOldCheck;
 import com.fshows.commons.util.MyFileUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

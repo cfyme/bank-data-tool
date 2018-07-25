@@ -2,13 +2,12 @@
  * fshows.com
  * Copyright (C) 2013-2018 All Rights Reserved.
  */
-package com.fshows.commons.liquidation;
+package com.fshows.commons.check;
 
 import com.fshows.commons.dao.dbtemplate.DBBankOldUtilsTemplate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 /**
