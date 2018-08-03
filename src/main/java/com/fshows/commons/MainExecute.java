@@ -9,8 +9,11 @@ import com.fshows.commons.batch.DbBankOldExecuteSql;
 import com.fshows.commons.check.DbBankNewCheck;
 import com.fshows.commons.check.DbBankOldCheck;
 import com.fshows.commons.check.DbLiquidationOldCheck;
+import com.fshows.commons.check.DbYanBianCheck;
 import com.fshows.commons.constant.DataConstant;
+import com.fshows.commons.kfshop.KfshopTest;
 import com.fshows.commons.liquidation.*;
+import com.fshows.commons.yanbian.*;
 
 public class MainExecute {
 
@@ -47,23 +50,28 @@ public class MainExecute {
         }
 
 
+        if ("DbYanBianCheck".equalsIgnoreCase(a)) {
+            DbYanBianCheck gaara = new DbYanBianCheck();
+            gaara.execute();
+        }
+
         if ("DbLiquidationOldCheck".equalsIgnoreCase(a)) {
-            DbLiquidationOldCheck dbLiquidationOldCheck = new DbLiquidationOldCheck();
-            dbLiquidationOldCheck.execute();
+            DbLiquidationOldCheck gaara = new DbLiquidationOldCheck();
+            gaara.execute();
         }
 
         if ("DbBankOldCheck".equalsIgnoreCase(a)) {
-            DbBankOldCheck dbBankOldCheck = new DbBankOldCheck();
-            dbBankOldCheck.execute();
+            DbBankOldCheck gaara = new DbBankOldCheck();
+            gaara.execute();
         }
         if ("DbBankNewCheck".equalsIgnoreCase(a)) {
-            DbBankNewCheck dbBankNewCheck = new DbBankNewCheck();
-            dbBankNewCheck.execute();
+            DbBankNewCheck gaara = new DbBankNewCheck();
+            gaara.execute();
         }
 
         if ("DbBankNewCheck".equalsIgnoreCase(a)) {
-            DbBankNewCheck dbBankNewCheck = new DbBankNewCheck();
-            dbBankNewCheck.execute();
+            DbBankNewCheck gaara = new DbBankNewCheck();
+            gaara.execute();
         }
 
         //老的平台化数据批量导入
@@ -138,6 +146,45 @@ public class MainExecute {
         if ("SyncStoreBankNew".equalsIgnoreCase(a)) {
             SyncStoreBankNew gaara = new SyncStoreBankNew();
             gaara.execute();
+        }
+
+        if ("YanbianOldDataToTest".equalsIgnoreCase(a)) {
+            YanbianOldDataToTest gaara = new YanbianOldDataToTest();
+            gaara.execute(Integer.valueOf(c), Integer.valueOf(d));
+        }
+        if ("YanbianOldStoreAuthDataToTest".equalsIgnoreCase(a)) {
+            YanbianOldStoreAuthDataToTest gaara = new YanbianOldStoreAuthDataToTest();
+            gaara.execute(c, d);
+        }
+        if ("YanbianStoreTestToOnline".equalsIgnoreCase(a)) {
+            YanbianStoreTestToOnline gaara = new YanbianStoreTestToOnline();
+            gaara.execute(Integer.valueOf(c));
+        }
+        if ("YanbianStoreAuthTestToOnline".equalsIgnoreCase(a)) {
+            YanbianStoreAuthTestToOnline gaara = new YanbianStoreAuthTestToOnline();
+            gaara.execute(Integer.valueOf(c));
+        }
+        if ("YanbianAlipayAccount".equalsIgnoreCase(a)) {
+            YanbianAlipayAccount gaara = new YanbianAlipayAccount();
+            gaara.execute(Integer.valueOf(c));
+        }
+
+        if ("YanbianFinanceToTest".equalsIgnoreCase(a)) {
+            YanbianFinanceToOnline gaara = new YanbianFinanceToOnline();
+            gaara.execute();
+        }
+        if ("KfshopTest".equalsIgnoreCase(a)) {
+            KfshopTest gaara = new KfshopTest();
+            gaara.execute();
+        }
+        if ("YanbianRefundOrderSync".equalsIgnoreCase(a)) {
+            YanbianRefundOrderSync gaara = new YanbianRefundOrderSync();
+            gaara.execute(Integer.valueOf(c));
+        }
+
+        if ("YanbianRefundOrderToOnline".equalsIgnoreCase(a)) {
+            YanbianRefundOrderToOnline gaara = new YanbianRefundOrderToOnline();
+            gaara.execute(Integer.valueOf(c));
         }
 
 

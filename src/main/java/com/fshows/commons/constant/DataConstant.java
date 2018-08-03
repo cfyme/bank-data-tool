@@ -16,7 +16,7 @@ public class DataConstant {
     public static String mycsv = "/users/caofy/excel/tmp.csv";
 
     /** 批量执行sql的数量 **/
-    public static final  int bachSize = 1000;
+    public static final  int bachSize = 500;
 
     //public static String lifecircle_csv = "/users/caofy/excel/lifecircle.csv";
    //public static String lifecircle_csv = "/users/caofy/excel/lifecircle_merchant_0708.txt";

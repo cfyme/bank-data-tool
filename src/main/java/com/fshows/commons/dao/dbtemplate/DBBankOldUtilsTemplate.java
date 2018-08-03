@@ -205,7 +205,7 @@ public class DBBankOldUtilsTemplate {
 	 *            sql语句
 	 * @return 查询结果
 	 */
-	public <T> List<T> find(Class<T> entityClass, String sql) {
+	public static  <T> List<T> find(Class<T> entityClass, String sql) {
 		return find(entityClass, sql, null);
 	}
 
@@ -236,7 +236,7 @@ public class DBBankOldUtilsTemplate {
 	 * @return 查询结果
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public <T> List<T> find(Class<T> entityClass, String sql, Object[] params) {
+	public static  <T> List<T> find(Class<T> entityClass, String sql, Object[] params) {
 		
 		List<T> list = new ArrayList<T>();
 		try {
